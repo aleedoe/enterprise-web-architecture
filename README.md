@@ -28,10 +28,10 @@ The system is built to handle complex business logic while maintaining loose cou
 
 ## 🛠️ Technology Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Server Components)
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, Server Components)
 - **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
 - **State Management**:
-  - **Server State**: [TanStack Query v5](https://tanstack.com/query/latest) (Caching, Optimistic Updates)
+  - **Server State**: [TanStack Query](https://tanstack.com/query/latest) (Caching, Optimistic Updates)
   - **Client State**: [Zustand](https://github.com/pmndrs/zustand) (Lightweight global store)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
 - **Validation**: [Zod](https://zod.dev/) (Schema validation)
