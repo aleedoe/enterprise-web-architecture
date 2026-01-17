@@ -1,0 +1,149 @@
+hospital-management-system/
+├── 📁 .github/                          # CI/CD workflows
+│   ├── workflows/
+│   └── pull_request_template.md
+├── 📁 .husky/                           # Git hooks
+├── 📁 public/                           # Static assets
+├── 📁 src/
+│   ├── 📁 app/                          # Next.js App Router
+│   │   ├── 📁 (auth)/                   # Auth route group
+│   │   │   ├── 📁 login/
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── login-form.tsx
+│   │   │   └── 📁 register/
+│   │   ├── 📁 admin/                    # Role-based routing
+│   │   │   ├── 📁 dashboard/
+│   │   │   ├── 📁 patients/
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── layout.tsx
+│   │   ├── 📁 doctor/
+│   │   ├── 📁 patient/
+│   │   ├── 📁 api/                      # API Routes (minimal, hanya proxy jika perlu)
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── 📁 modules/                      # Feature-based modules
+│   │   ├── 📁 auth/                     # Authentication module
+│   │   │   ├── 📁 presentation/
+│   │   │   ├── 📁 application/
+│   │   │   ├── 📁 domain/
+│   │   │   └── 📁 infrastructure/
+│   │   ├── 📁 patient-management/
+│   │   ├── 📁 doctor-management/
+│   │   ├── 📁 appointment/
+│   │   ├── 📁 medical-records/
+│   │   └── 📁 billing/
+│   ├── 📁 presentation/                 # Global presentation layer
+│   │   ├── 📁 components/               # Global UI components
+│   │   │   ├── 📁 ui/                   # shadcn/ui components
+│   │   │   │   ├── button.tsx
+│   │   │   │   ├── card.tsx
+│   │   │   │   └── ...
+│   │   │   ├── 📁 forms/                # Global form components
+│   │   │   │   ├── form-input.tsx
+│   │   │   │   └── form-select.tsx
+│   │   │   ├── 📁 layout/               # Layout components
+│   │   │   │   ├── header.tsx
+│   │   │   │   ├── sidebar.tsx
+│   │   │   │   └── main-layout.tsx
+│   │   │   └── 📁 providers/            # Context providers
+│   │   │       └── theme-provider.tsx
+│   │   ├── 📁 containers/               # Container components
+│   │   │   ├── patient-list-container.tsx
+│   │   │   └── appointment-calendar-container.tsx
+│   │   └── 📁 hooks/                    # UI-specific hooks
+│   │       ├── use-toast.ts
+│   │       └── use-media-query.ts
+│   ├── 📁 application/                  # Global application layer
+│   │   ├── 📁 store/                    # Redux store configuration
+│   │   │   ├── root-reducer.ts
+│   │   │   ├── store.ts
+│   │   │   └── hooks.ts
+│   │   ├── 📁 slices/                   # Global Redux slices
+│   │   │   ├── auth.slice.ts
+│   │   │   └── ui.slice.ts
+│   │   └── 📁 use-cases/                # Application use cases
+│   │       ├── book-appointment.usecase.ts
+│   │       └── generate-invoice.usecase.ts
+│   ├── 📁 domain/                       # Core domain layer
+│   │   ├── 📁 entities/                 # Business entities
+│   │   │   ├── patient.entity.ts
+│   │   │   ├── doctor.entity.ts
+│   │   │   ├── appointment.entity.ts
+│   │   │   ├── medical-record.entity.ts
+│   │   │   └── user.entity.ts
+│   │   ├── 📁 value-objects/            # Value objects
+│   │   │   ├── email.value-object.ts
+│   │   │   ├── phone.value-object.ts
+│   │   │   └── money.value-object.ts
+│   │   ├── 📁 enums/                    # Domain enums
+│   │   │   ├── user-role.enum.ts
+│   │   │   ├── appointment-status.enum.ts
+│   │   │   └── payment-status.enum.ts
+│   │   ├── 📁 repositories/             # Repository interfaces
+│   │   │   ├── patient.repository.ts
+│   │   │   └── appointment.repository.ts
+│   │   └── 📁 services/                 # Domain services
+│   │       ├── appointment-validator.service.ts
+│   │       └── billing-calculator.service.ts
+│   ├── 📁 infrastructure/               # Infrastructure layer
+│   │   ├── 📁 api/                      # API communication
+│   │   │   ├── axios-client.ts
+│   │   │   ├── interceptors/
+│   │   │   │   ├── auth.interceptor.ts
+│   │   │   │   └── error.interceptor.ts
+│   │   │   ├── endpoints/               # API endpoints
+│   │   │   │   ├── patient.api.ts
+│   │   │   │   ├── appointment.api.ts
+│   │   │   │   └── auth.api.ts
+│   │   │   └── mappers/                 # API ⇄ Entity mappers
+│   │   │       ├── patient.mapper.ts
+│   │   │       └── appointment.mapper.ts
+│   │   ├── 📁 storage/                  # Storage abstractions
+│   │   │   ├── local-storage.ts
+│   │   │   └── session-storage.ts
+│   │   └── 📁 config/                   # Infrastructure config
+│   │       └── environment.ts
+│   ├── 📁 shared/                       # Shared utilities
+│   │   ├── 📁 utils/
+│   │   │   ├── date.utils.ts
+│   │   │   ├── string.utils.ts
+│   │   │   └── validation.utils.ts
+│   │   ├── 📁 constants/
+│   │   │   ├── routes.constants.ts
+│   │   │   ├── api.constants.ts
+│   │   │   └── error-messages.constants.ts
+│   │   ├── 📁 helpers/
+│   │   │   ├── error.helper.ts
+│   │   │   └── formatter.helper.ts
+│   │   ├── 📁 validators/
+│   │   │   ├── schema/                  # Zod schemas
+│   │   │   │   ├── patient.schema.ts
+│   │   │   │   └── appointment.schema.ts
+│   │   │   └── rules/                  # Validation rules
+│   │   │       └── patient.rules.ts
+│   │   ├── 📁 types/                    # Global TypeScript types
+│   │   │   ├── common.types.ts
+│   │   │   ├── api.types.ts
+│   │   │   └── redux.types.ts
+│   │   └── 📁 hooks/                    # Shared React hooks
+│   │       ├── use-debounce.ts
+│   │       ├── use-local-storage.ts
+│   │       └── use-query-params.ts
+│   └── 📁 styles/                       # Global styles
+│       ├── themes/                      # Theme definitions
+│       └── globals.css
+├── 📁 configs/                          # Build & runtime configs
+│   ├── next.config.ts
+│   ├── tailwind.config.ts
+│   └── eslint.config.js
+├── .env.example
+├── .env.local
+├── .eslintrc.json
+├── .prettierrc
+├── tsconfig.json
+├── package.json
+└── README.md
